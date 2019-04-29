@@ -3,19 +3,25 @@
         <div class="nav-con fl">
             <ul>
                 <!-- v-for 根据数据的数量来遍历，这里的导航数量固定，不需要 -->
-                <li class = "icon nav-item">主站</li><li class = "nav-item">音频</li>   
-                <li class = "nav-item">游戏中心</li>   
-                <li class = "nav-item">直播 </li>   
-                <li class = "nav-item">会员购</li>   
-                <li class = "nav-item">漫画</li>
+                <li class = "icon nav-item" title="主站">主站</li>
+                <li class = "nav-item" title="来探索bilibili音乐的世界吧！">音频</li>
+                <li class = "nav-item" title="游戏中心" @mouseover="gameE=true" @mouseleave="gameE=false">
+                <header-pop class="header-pop" v-show="gameE"></header-pop>
+                  游戏中心
+                </li>
+                <li class = "nav-item" title="直播" @mouseover="playE=true " @mouseleave="playE=false">
+                  直播
+                </li>
+                <li class = "nav-item" title="会员购">会员购</li>
+                <li class = "nav-item" title="漫画">漫画</li>
                 <li class = "nav-item">BML</li>   
                 <li class = "nav-item">70年</li>      
             </ul>
         </div><div class="nav-con fr">
             <ul class="fr">
-                <li class="nav-item profile-info"><img class="icon-face" src="../../assets/bilibili/image/face.jpg" alt=""><a></a></li>
+                <li class="nav-item profile-info" ><img class="icon-face" src="../../assets/bilibili/image/face.jpg" alt=""><a></a></li>
                 <li class="nav-item ">大会员</li>
-                <li class="nav-item ">消息</li>
+                <li class="nav-item " title="消息">消息</li>
                 <li class="nav-item ">动态</li>
                 <li class="nav-item ">稍后再看</li>
                 <li class="nav-item ">收藏</li>
@@ -27,10 +33,25 @@
     </div>
 </template>
 <script>
+
 export default{
     name:'myHeader',
     component:'my-header',
-    template:"</my-header>"
+    template:"</my-header>",
+    components:{
+      headerPop,
+    },
+    data(){
+      return {
+        gameE:false,
+        playE:false
+      }
+    },
+    methods:{
+
+    }
+
+
 }
 </script>
 <style>
@@ -48,6 +69,7 @@ html,body{
     width:100%;
     height: 100%;
 }
+
 .nav-meau{
     position: relative;
     width:100%;
@@ -79,10 +101,12 @@ html,body{
 .nav-item:hover{
     background: #fff;
     cursor:pointer;
+    content:attr(title);
 }
 .icon::before{
     content: url(../../assets/bilibili/image/icon.png);
     vertical-align: sub;
+    margin-right:2px;
 }
 .profile-info{
     height: 45px;
@@ -114,4 +138,5 @@ html,body{
 .up-load a{
     vertical-align: middle;
 }
+
 </style>
