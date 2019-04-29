@@ -1,18 +1,15 @@
 <template >
     <div>
-        <myHeader></myHeader>
-        <myHeader></myHeader>
+      <my-header></my-header>
     </div>
 </template>
 <script>
-import myHeader from './header'
-
+import myHeader from "../common/header"
 export default {
     name:"home",
-    // template:"</home>",
     components:{myHeader}
+    // template:"</home>",
 }
-
 </script>
 <style>
 

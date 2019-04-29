@@ -1,9 +1,12 @@
 <template>
-<div>
-    用户：<input type="text" v-model="User" >
-    密码：<input type="password" v-model="password" placeholder="密码">
-    <input type="submit" @click="logCheck(User,password)" value="登陆">
-</div>    
+<div class="login-aside">
+    <div class="login-form">
+         <span>用户：<input type="text" v-model="User" ></span>  
+         <span>密码：<input type="password" v-model="password" placeholder="密码"> </span>    
+        <input type="submit" @click="logCheck(User,password)" value="登陆">
+    </div>    
+</div>
+    
 </template>
 <script>
 import { usersInfo } from "../../api/loginCheck"
@@ -32,6 +35,7 @@ export default{
                     this.checked = response.data.result.some(element =>  element.user==user&&element.psw==psw);
                     console.log(this.checked);
                     if(this.checked)this.$router.push({path:"/home",name:"home"});
+                    else{alert("用户密码不正确");}
            } 
        ).catch(
            error=>{
@@ -44,8 +48,40 @@ export default{
 
 </script>
 <style>
-input {
-    display: inline-block;
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    width:100%;
+}
+div{
+    height: 100%;
+}
+
+.login-aside{
+    width: 300px;
+    height: 100%;
+    /* background: rgb(102, 199, 142); */
+    float: right; 
+}
+.login-form{
+    flex-direction: column;
+    min-height: 200px;
+    height: auto;
+    /* background: rgb(0, 174, 255); */
+    position: relative;
+    top:50%;
+    margin-top: -150px;
+}
+
+.login-form > span {
+    display: block;
+    height: 50px;
+    vertical-align: center;
+    position: relative;
+    margin-top:10px; 
 }
 
 </style>

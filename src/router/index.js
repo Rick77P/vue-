@@ -17,6 +17,10 @@ export default new Router({
       path:'/home',
       name:'home',
       component:home
+    },
+    {
+      path:'/library',
+      name:'library',
     }
   ]
 })
