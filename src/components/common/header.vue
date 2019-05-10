@@ -5,11 +5,10 @@
                 <!-- v-for 根据数据的数量来遍历，这里的导航数量固定，不需要 -->
                 <li class = "icon nav-item" title="主站">主站</li>
                 <li class = "nav-item" title="来探索bilibili音乐的世界吧！">音频</li>
-                <li class = "nav-item" title="游戏中心" @mouseover="gameE=true" @mouseleave="gameE=false">
-                <header-pop class="header-pop" v-show="gameE"></header-pop>
+                <li class = "nav-item" title="游戏中心"   @mouseover="hover('game')" @mouseleave="leave('game')">
                   游戏中心
                 </li>
-                <li class = "nav-item" title="直播" @mouseover="playE=true " @mouseleave="playE=false">
+                <li class = "nav-item" title="直播" name="live" @mouseover="hover('live')" @mouseleave="leave('live')">
                   直播
                 </li>
                 <li class = "nav-item" title="会员购">会员购</li>
@@ -33,14 +32,13 @@
     </div>
 </template>
 <script>
+import { log } from 'util'; 
+import { constants } from 'fs';
 
 export default{
     name:'myHeader',
     component:'my-header',
     template:"</my-header>",
-    components:{
-      headerPop,
-    },
     data(){
       return {
         gameE:false,
@@ -48,7 +46,15 @@ export default{
       }
     },
     methods:{
-
+        hover(name){
+            // console.log(name);
+            // console.log(this.$store.state.headerStore);
+           this.$store.commit('headerStore/show',name);
+        },
+        leave(name){
+            //  console.log(this.$store._mutations['headerStore/show']); 
+            this.$store.commit('headerStore/hide',name);         
+        }
     }
 
 

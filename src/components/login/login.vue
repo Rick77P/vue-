@@ -79,7 +79,7 @@ div{
 .login-form > span {
     display: block;
     height: 50px;
-    vertical-align: center;
+    /* vertical-align: center; */
     position: relative;
     margin-top:10px; 
 }

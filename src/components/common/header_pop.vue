@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div :class="this.$store.state.headerStore.styleH"  v-show="this.$store.state.headerStore.gameH">
         <div class="left">
           <div class="banner"></div>
         </div>
@@ -11,13 +11,21 @@
 
 <script>
     export default {
-        name: "header_pop",
+        name: "headerPop",
+        data(){
+          return{
+              style:'box game',
+              show:true
+          }
+        },
 
+        
     }
 </script>
 
 <style scoped>
 .box{
+  position:fixed;
   width: 466px;
   height: 256px;
   border-radius: 0 0 4px 4px;
@@ -25,6 +33,15 @@
   position: relative;
   background: #fff;
 }
+.game{
+  left:170px;
+
+}
+
+.live{
+  left: 240px;
+}
+
   .left{
     width: 265px;
     margin: 12px 0 0 0;
