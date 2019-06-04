@@ -11,7 +11,7 @@
                 <li class = "nav-item" title="直播" name="live" @mouseover="hover('live')" @mouseleave="leave('live')">
                   直播
                 </li>
-                <li class = "nav-item" title="会员购">会员购</li>
+                <li class = "nav-item" @click="download" title="会员购">会员购</li>
                 <li class = "nav-item" title="漫画">漫画</li>
                 <li class = "nav-item">BML</li>   
                 <li class = "nav-item">70年</li>      
@@ -54,7 +54,11 @@ export default{
         leave(name){
             //  console.log(this.$store._mutations['headerStore/show']); 
             this.$store.commit('headerStore/hide',name);         
+        },
+        download(){
+            // window.location.href ='../../assets/test/H5C05AA71_0517100412.apk';
         }
+
     }
 
 
@@ -81,7 +85,8 @@ html,body{
     width:100%;
     min-width: 980px;
     height: 45px;
-    background: #f5f5f5;
+    background: #f5f5f5 ;
+    opacity: 0.5;
     color:#000;
 }
 .nav-con{

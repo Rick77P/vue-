@@ -1,19 +1,16 @@
 <template >
     <div>
-      <my-header></my-header>
-      <header-pop class="header-pop"></header-pop>
+      <b-header></b-header>
     </div>
 </template>
 
 <script>
-import myHeader from "../common/header"
-import headerPop from "../common/header_pop"
+import BHeader from '../common/BHeader'
 
 export default {
     name:"home",
     components:{
-      myHeader,
-      headerPop
+      BHeader
     },
     // template:"</home>",
 }
@@ -21,8 +18,5 @@ export default {
 <style>
 html,body{
   position: relative;
-}
-.header-pop{
-  position: fixed;
 }
 </style>
