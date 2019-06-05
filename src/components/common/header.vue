@@ -1,9 +1,8 @@
 <template>
-    <div class="nav-meau">
-        <div class="nav-con fl">
+    <div class="nav-meau"><div class="nav-con fl">
             <ul>
                 <!-- v-for 根据数据的数量来遍历，这里的导航数量固定，不需要 -->
-                <li class = "icon nav-item" title="主站">主站</li>
+                <li class = "icon nav-item" title="主站"></i>主站</li>
                 <li class = "nav-item" title="来探索bilibili音乐的世界吧！">音频</li>
                 <li class = "nav-item" title="游戏中心"   @mouseover="hover('game')" @mouseleave="leave('game')">
                   游戏中心
@@ -17,7 +16,7 @@
                 <li class = "nav-item">70年</li>      
             </ul>
         </div><div class="nav-con fr">
-            <ul class="fr">
+            <ul >
                 <li class="nav-item profile-info" ><img class="icon-face" src="../../assets/bilibili/image/face.jpg" alt=""><a></a></li>
                 <li class="nav-item ">大会员</li>
                 <li class="nav-item " title="消息">消息</li>
@@ -26,10 +25,10 @@
                 <li class="nav-item ">收藏</li>
                 <li class="nav-item ">历史</li>
             </ul>
-        </div><div class="up-load fr">
-            <a >投稿</a>
         </div>
-    </div>
+        <div class="up-load ">
+            <a>投稿</a>
+            </div></div>
 </template>
 <script>
 import { log } from 'util'; 
@@ -69,6 +68,11 @@ export default{
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration:none;
+    outline: none;
+
+}
 ul,ol{
     list-style: none;
     font-size: 0;
@@ -83,11 +87,13 @@ html,body{
 .nav-meau{
     position: relative;
     width:100%;
-    min-width: 980px;
+    min-width: 1100px;
     height: 45px;
-    background: #f5f5f5 ;
-    opacity: 0.5;
-    color:#000;
+    /* background:transparent ; */
+    background-color: rgba(255, 255,255, 0.6);
+    /* opacity: 0.5; */
+    /* overflow-x:hidden ; */
+
 }
 .nav-con{
     width: auto;
@@ -95,22 +101,30 @@ html,body{
     height: 45px;
     line-height: 45px;
     font-size: 14px;
+    /* background: red; */
+    
 } 
 
 .fl,.fr{
     display: inline-block;
 }
 .fl {
-    float: left;
-    margin-left: 5%;
+    /* float: left; */
+    vertical-align:top;
+    margin-right:250px; 
 }
+.fr{
+    vertical-align:top;
+    /* float:right; */
+}
+
 .nav-item{
     display: inline-block;
     padding: 0 10px;
     /* background: red; */
 }
 .nav-item:hover{
-    background: #fff;
+    background-color:rgba(255, 255,255, 0.7);
     cursor:pointer;
     content:attr(title);
 }
@@ -122,7 +136,6 @@ html,body{
 .profile-info{
     height: 45px;
     line-height: 45px;
-
 }
 .icon-face{
     display: inline-block;
