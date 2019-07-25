@@ -25,13 +25,14 @@
 
 <style scoped>
 .box{
-  position:fixed;
+  position: absolute;
   width: 466px;
   height: 256px;
   border-radius: 0 0 4px 4px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
   position: relative;
   background: #fff;
+  top:45px;
 }
 .game{
   left:170px;

@@ -4,6 +4,8 @@
          <span>用户：<input type="text" v-model="User" ></span>  
          <span>密码：<input type="password" v-model="password" placeholder="密码"> </span>    
         <input type="submit" @click="logCheck(User,password)" value="登陆">
+        <input type="button" @click="gotoPra({path:'/practice',name:'practice'})" value='练习'>
+        <input type="button" @click="gotoPra({path:'/practice1',name:'practice1'})" value='练习1'>
     </div>    
 </div>
     
@@ -42,6 +44,9 @@ export default{
                console.log("error:"+error);
            }
        );
+    },
+    gotoPra(route){
+        this.$router.push(route);
     }
     }
 }//导出的名字

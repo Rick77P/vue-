@@ -2,7 +2,7 @@
     <div class="nav-meau"><div class="nav-con fl">
             <ul>
                 <!-- v-for 根据数据的数量来遍历，这里的导航数量固定，不需要 -->
-                <li class = "icon nav-item" title="主站"></i>主站</li>
+                <li class = "icon nav-item" title="主站">主站</li>
                 <li class = "nav-item" title="来探索bilibili音乐的世界吧！">音频</li>
                 <li class = "nav-item" title="游戏中心"   @mouseover="hover('game')" @mouseleave="leave('game')">
                   游戏中心
@@ -26,9 +26,10 @@
                 <li class="nav-item ">历史</li>
             </ul>
         </div>
-        <div class="up-load ">
+        <div class="up-load">
             <a>投稿</a>
-            </div></div>
+            </div>
+            </div>
 </template>
 <script>
 import { log } from 'util'; 
@@ -85,7 +86,9 @@ html,body{
 }
 
 .nav-meau{
-    position: relative;
+    top: 0%;
+    /* display: inline-block; */
+    position: absolute;
     width:100%;
     min-width: 1100px;
     height: 45px;
@@ -109,13 +112,11 @@ html,body{
     display: inline-block;
 }
 .fl {
-    /* float: left; */
     vertical-align:top;
     margin-right:250px; 
 }
 .fr{
     vertical-align:top;
-    /* float:right; */
 }
 
 .nav-item{
