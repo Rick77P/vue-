@@ -13,6 +13,7 @@
           </tr>
         </thead>
 
+
         <tbody v-for="(category,index1) in list" :key="category.id">
           <tr class="category">{{category.name}} <input type="checkbox" v-model="checkCategory[index1]"></tr>
             <!-- v-for 的key值绑定不要用 引用值，最好是数值 -->
@@ -52,7 +53,7 @@ export default {
   name: "practice",
   data() {
     return {
-      checkCategory:[],
+      // checkCategory:[],
       list: [{
         id:1,
         name:"电子产品",
@@ -131,11 +132,31 @@ export default {
             
           return this.checkCategory.every(item=>item);
         },
+        set(newval){         
+          let arr = [];
+          this.checkCategory.forEach((item,index)=>
+          {
+            arr[index] = newval;
+          });
+          this.checkCategory=arr;
+          arr = null;
+         
+        }
+      },
+      checkCategory:{//循环调用了
+        get(){
+          let arr = [];
+          this.checkCategory.forEach((item,index)=>
+          {
+            arr[index] = this.list[index].every(item=>item.check);
+          }
+          );
+          return arr;
+        },
         set(newval){
-          console.log(this.checkCategory,newval);
-
-          this.checkCategory.forEach((item,index)=>{this.checkCategory[index]=newval;});
-          console.log(this.checkCategory,newval);
+          newval.forEach((item,index)=>{
+          this.list[index].data.forEach((item1)=>item1.check=item); 
+        });
         }
       }
   },
@@ -155,21 +176,22 @@ export default {
       //  console.log("checked:"+item.checked);
     }
   },
-  watch:{
-    "checkCategory":{
-      handler(){
-
-      },
-      immediate:false,
-      deep:false
-    }
-
-  },
-  created:function (params) {
-      let arr1 = [];
-      this.list.forEach(()=>arr1.push(false));
-      this.checkCategory = arr1;
-    }
+  // watch:{//只能完成setter操作
+  //   "checkCategory":{
+  //     handler(newval,oldval){
+  //       newval.forEach((item,index)=>{
+  //         this.list[index].data.forEach((item1)=>item1.check=item); 
+  //       });
+  //     },
+  //     immediate:false,
+  //     deep:false
+  //   }
+  // },
+  // created:function (params) {
+  //     let arr1 = [];
+  //     this.list.forEach(()=>arr1.push(false));
+  //     this.checkCategory = arr1;
+  //   }
   
 };
 </script>
