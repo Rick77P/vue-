@@ -12,8 +12,7 @@
 </template>
 <script>
 import { usersInfo } from "../../api/loginCheck"
-import { log } from 'util';
-import { constants } from 'fs';
+
 
 
 export default{
@@ -69,6 +68,7 @@ div{
     width: 300px;
     height: 100%;
     /* background: rgb(102, 199, 142); */
+    margin-top: 300px;
     float: right; 
 }
 .login-form{

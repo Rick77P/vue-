@@ -53,7 +53,7 @@ export default {
   name: "practice",
   data() {
     return {
-      // checkCategory:[],
+      checkCategory:[],
       list: [{
         id:1,
         name:"电子产品",
@@ -143,22 +143,22 @@ export default {
          
         }
       },
-      checkCategory:{//循环调用了
-        get(){
-          let arr = [];
-          this.checkCategory.forEach((item,index)=>
-          {
-            arr[index] = this.list[index].every(item=>item.check);
-          }
-          );
-          return arr;
-        },
-        set(newval){
-          newval.forEach((item,index)=>{
-          this.list[index].data.forEach((item1)=>item1.check=item); 
-        });
-        }
-      }
+      // checkCategory:{//循环调用了
+      //   get(){
+      //     // let arr = [];
+      //     // this.checkCategory.forEach((item,index)=>
+      //     // {
+      //     //   arr[index] = this.list[index].every(item=>item.check);
+      //     // }
+      //     // );
+      //     // return arr;
+      //   },
+      //   set(newval){
+      //     newval.forEach((item,index)=>{
+      //     this.list[index].data.forEach((item1)=>item1.check=item); 
+      //   });
+      //   }
+      // }
   },
   methods:{
     handleReduce(item){

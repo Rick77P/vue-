@@ -5,7 +5,7 @@
 </template>
 <script>
 export default practice1 
-// import {createIterator} from '../../js/practice'
+import {createIterator} from '../../js/practice'
 
 var practice1 = {
     name:'practice1'
